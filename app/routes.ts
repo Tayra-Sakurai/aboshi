@@ -7,6 +7,7 @@ export default [
       route('auth', './auth/auth.tsx',
         [
           route('login', './auth/login.tsx'),
+          route('login_wait', './auth/login_wait.tsx'),
         ]
       ),
     ]

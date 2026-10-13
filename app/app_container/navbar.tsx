@@ -14,8 +14,14 @@ import ListItemButton from "@mui/material/ListItemButton";
 import { Link as RouterLink } from "react-router";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
+import LoginIcon from "@mui/icons-material/Login";
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 
-export default function NavigationBar() {
+export default function NavigationBar({
+  email
+}: {
+  email?: string | null
+}) {
   const [open, setOpen] = useState<boolean>(false);
 
   return (
@@ -40,6 +46,17 @@ export default function NavigationBar() {
           >
             Aboshi
           </Typography>
+          <IconButton
+            size="large"
+            color="inherit"
+            edge="end"
+            sx={{ mr: 2 }}
+          >
+            {email ?
+              <AccountCircleIcon /> :
+              <LoginIcon />
+            }
+          </IconButton>
         </Toolbar>
       </AppBar>
       <Drawer

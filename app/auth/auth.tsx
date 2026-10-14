@@ -14,7 +14,7 @@ export default function LoginSignIn() {
       }}
     >
       <CardHeader
-        content="Aboshi"
+        title="Aboshi"
         avatar={
           <Avatar
             sx={{

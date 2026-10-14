@@ -1,13 +1,20 @@
 import Typography from "@mui/material/Typography";
+import { useContext } from "react";
+import UserContext from "~/contexts/UserContext";
 
 export default function Dashboard() {
+  const userContext = useContext(UserContext);
+
   return (
     <>
       <Typography
-        component="h1"
-        variant="h1"
+        component="h2"
+        variant="h2"
       >
-        ようこそ
+        {userContext?.email ?
+          `ようこそ、${userContext.email}さん` :
+          `はじめまして`
+        }
       </Typography>
     </>
   );

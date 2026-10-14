@@ -51,6 +51,8 @@ export default function NavigationBar({
             color="inherit"
             edge="end"
             sx={{ mr: 2 }}
+            component={RouterLink}
+            to={email ? "/" : "/auth/login"}
           >
             {email ?
               <AccountCircleIcon /> :

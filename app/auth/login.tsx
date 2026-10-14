@@ -6,6 +6,7 @@ import Input from "@mui/material/Input";
 import FormLabel from "@mui/material/FormLabel";
 import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
+import { useEffect } from "react";
 
 export function meta(): Route.MetaDescriptors {
   return [
@@ -22,6 +23,7 @@ export function meta(): Route.MetaDescriptors {
 export async function action({
   request
 }: Route.ActionArgs) {
+  console.info('Form data was sent.');
   const formData = await request.formData();
   const { supabase } = createClient(request);
   const email = formData.get('email');
@@ -32,10 +34,11 @@ export async function action({
     await supabase.auth.signInWithOtp({
       email,
       options: {
-        emailRedirectTo: 'https://aboshi.vercel.app/'
+        emailRedirectTo: 'https://aboshi.vercel.app/',
       }
     });
-  } catch {
+  } catch (e) {
+    console.error(String(e))
     return false;
   }
   return true;
@@ -45,8 +48,10 @@ export default function Login({
   actionData
 }: Route.ComponentProps) {
   const navigate = useNavigate();
-  if (actionData)
-    navigate('/auth/login_wait');
+  useEffect(() => {
+    if (actionData)
+      navigate('/auth/login_wait');
+  }, [actionData]);
   return (
     <Form method="post">
       <Stack

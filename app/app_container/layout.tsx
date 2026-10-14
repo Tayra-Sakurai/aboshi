@@ -8,8 +8,17 @@ export async function loader({
   request
 }: Route.LoaderArgs) {
   const { supabase } = createClient(request);
-  const { data: { user } } = await supabase.auth.getUser();
-  return user;
+  const code = new URL(request.url).searchParams.get('code');
+  if (code) {
+    const { error } = await supabase.auth.exchangeCodeForSession(code);
+    if (error) {
+      console.error(error);
+      return null;
+    }
+    const { data: { user }} = await supabase.auth.getUser();
+    return user;
+  }
+  return null;
 }
 
 export default function Layout({

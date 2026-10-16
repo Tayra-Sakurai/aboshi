@@ -10,6 +10,13 @@ export default [
           route('login_wait', './auth/login_wait.tsx'),
         ]
       ),
+      layout('./views/view_base.tsx',
+        [
+          route('edit/large_category/:cid', './views/large_categories/large_category_edit.tsx'),
+          route('large_categories', 'views/large_categories/large_categories_view.tsx'),
+        ]
+      ),
+      route('deletion', './views/deletion/deletion.tsx'),
     ]
   ),
 ] satisfies RouteConfig;

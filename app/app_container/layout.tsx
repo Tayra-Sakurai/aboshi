@@ -1,4 +1,4 @@
-import { Outlet } from "react-router";
+import { data, Outlet } from "react-router";
 import type { Route } from "./+types/layout";
 import NavigationBar from "./navbar";
 import { createClient } from "~/utils/supabase.server";
@@ -7,7 +7,8 @@ import UserContext from "~/contexts/UserContext";
 export async function loader({
   request
 }: Route.LoaderArgs) {
-  const { supabase } = createClient(request);
+  const { supabase, headers } = createClient(request);
+  console.info(request.headers.getSetCookie())
   const code = new URL(request.url).searchParams.get('code');
   if (code) {
     const { error } = await supabase.auth.exchangeCodeForSession(code);
@@ -15,10 +16,9 @@ export async function loader({
       console.error(error);
       return null;
     }
-    const { data: { user }} = await supabase.auth.getUser();
-    return user;
   }
-  return null;
+  const { data: { user }} = await supabase.auth.getUser();
+  return data(user, { headers });
 }
 
 export default function Layout({

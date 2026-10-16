@@ -1,11 +1,12 @@
-import { createClient } from "~/utils/supabase.server";
 import type { Route } from "./+types/login";
-import { Form, redirect } from "react-router";
+import { data, Form, redirect } from "react-router";
 import FormControl from "@mui/material/FormControl";
 import Input from "@mui/material/Input";
 import FormLabel from "@mui/material/FormLabel";
 import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
+import Alert from "@mui/material/Alert";
+import { createClient } from "~/utils/supabase.server";
 
 export function meta(): Route.MetaDescriptors {
   return [
@@ -22,25 +23,20 @@ export function meta(): Route.MetaDescriptors {
 export async function action({
   request
 }: Route.ActionArgs) {
-  console.info('Form data was sent.');
+  const { supabase, headers } = createClient(request);
   const formData = await request.formData();
-  const { supabase } = createClient(request);
   const email = formData.get('email');
-  if ((typeof email) !== 'string') {
-    return false;
-  }
-  try {
-    await supabase.auth.signInWithOtp({
+  if (typeof email === 'string') {
+    const { error } = await supabase.auth.signInWithOtp({
       email,
       options: {
         emailRedirectTo: `${new URL(request.url).origin}/`,
-      }
+      },
     });
-  } catch (e) {
-    console.error(String(e))
-    return false;
+    if (error)
+      return data(error, { status: 400 });
+    return redirect('/auth/login_wait', { headers });
   }
-  return redirect('/auth/login_wait');
 }
 
 export default function Login({
@@ -52,6 +48,7 @@ export default function Login({
         direction="column"
         spacing={4}
       >
+        {actionData && <Alert severity="error">{actionData.message}</Alert>}
         <FormControl>
           <FormLabel
             htmlFor="email"
@@ -70,7 +67,6 @@ export default function Login({
           type="submit"
           color="success"
           variant="contained"
-          disabled={!!actionData}
         >
           送信
         </Button>

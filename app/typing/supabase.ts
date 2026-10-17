@@ -48,6 +48,7 @@ export type Database = {
           method_id: number
           name: string
           small_category_id: number
+          timestamp: string
           user_id: string
         }
         Insert: {
@@ -58,6 +59,7 @@ export type Database = {
           method_id: number
           name?: string
           small_category_id: number
+          timestamp?: string
           user_id?: string
         }
         Update: {
@@ -68,6 +70,7 @@ export type Database = {
           method_id?: number
           name?: string
           small_category_id?: number
+          timestamp?: string
           user_id?: string
         }
         Relationships: [
@@ -166,6 +169,7 @@ export type Database = {
           created_at: string
           id: number
           medium_category_id: number
+          monthly_budget: number
           name: string
           user_id: string
         }
@@ -173,6 +177,7 @@ export type Database = {
           created_at?: string
           id?: number
           medium_category_id: number
+          monthly_budget?: number
           name?: string
           user_id?: string
         }
@@ -180,6 +185,7 @@ export type Database = {
           created_at?: string
           id?: number
           medium_category_id?: number
+          monthly_budget?: number
           name?: string
           user_id?: string
         }

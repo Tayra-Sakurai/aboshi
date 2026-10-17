@@ -17,7 +17,7 @@ type LargeCategory = Omit<
 > & {
   medium_categories: {
     small_categories: {
-      items: Omit<Database["public"]["Tables"]["items"]["Row"], "id" | "created_at" | "name" | "small_category_id" | "method_id" | "user_id">[];
+      items: Omit<Database["public"]["Tables"]["items"]["Row"], "id" | "created_at" | "name" | "small_category_id" | "method_id" | "user_id" | "timestamp">[];
     }[];
   }[];
 };

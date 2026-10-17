@@ -3,6 +3,9 @@ import type { Route } from "./+types/layout";
 import NavigationBar from "./navbar";
 import { createClient } from "~/utils/supabase.server";
 import UserContext from "~/contexts/UserContext";
+import BottomNavs from "./bottom_navs";
+import Box from "@mui/material/Box";
+import Stack from "@mui/material/Stack";
 
 export async function loader({
   request
@@ -26,13 +29,20 @@ export default function Layout({
 }: Route.ComponentProps) {
   console.info(loaderData);
   return (
-    <>
-      <NavigationBar
-        email={loaderData?.email}
-      />
-      <UserContext.Provider value={loaderData}>
-      <Outlet />
-      </UserContext.Provider>
-    </>
+    <Stack
+      sx={{
+        minHeight: '100svh',
+      }}
+    >
+        <NavigationBar
+          email={loaderData?.email}
+        />
+        <UserContext.Provider value={loaderData}>
+          <Box sx={{ flexGrow: 1 }}>
+            <Outlet />
+          </Box>
+        </UserContext.Provider>
+        <BottomNavs />
+    </Stack>
   );
 }

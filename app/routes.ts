@@ -1,4 +1,4 @@
-import { type RouteConfig, index, layout, route } from "@react-router/dev/routes";
+import { type RouteConfig, index, layout, prefix, route } from "@react-router/dev/routes";
 
 export default [
   layout('./app_container/layout.tsx',
@@ -12,11 +12,23 @@ export default [
       ),
       layout('./views/view_base.tsx',
         [
-          route('edit/large_category/:cid', './views/large_categories/large_category_edit.tsx'),
           route('large_categories', 'views/large_categories/large_categories_view.tsx'),
+          route('medium_categories/:lc?', './views/medium_categories/medium_categories_view.tsx'),
+          route('money_status', './views/money_status/money_status_view.tsx'),
+          ...prefix('edit', [
+            route('medium_category/:cid', './views/medium_categories/medium_category_edit.tsx'),
+            route('large_category/:cid', './views/large_categories/large_category_edit.tsx'),
+            route('money_status/:cid', './views/money_status/money_status_edit.tsx'),
+          ]),
+          ...prefix('add', [
+            route('large_category', './views/large_categories/large_category_add.tsx'),
+            route('medium_category', './views/medium_categories/medium_category_add.tsx'),
+            route('money_status', './views/money_status/money_status_add.tsx'),
+          ]),
         ]
       ),
       route('deletion', './views/deletion/deletion.tsx'),
+      route('add', './routes/add.tsx'),
     ]
   ),
 ] satisfies RouteConfig;

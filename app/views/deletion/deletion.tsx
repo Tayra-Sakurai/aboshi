@@ -9,7 +9,12 @@ export async function action({
   const table = formData.get('table');
   const id = formData.get('id');
   const redirectTo = formData.get('redirect_to');
-  if ((table === 'large_categories') && (typeof id === 'string')) {
+  if (((table === 'large_categories') ||
+    (table === 'medium_categories') ||
+    (table === 'small_categories') ||
+    (table === 'items') ||
+    (table === 'money_status')) &&
+    (typeof id === 'string')) {
     const { supabase } = createClient(request);
     const { error } = await supabase
       .from(table)

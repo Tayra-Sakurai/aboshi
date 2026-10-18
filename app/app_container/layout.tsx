@@ -32,6 +32,9 @@ export default function Layout({
     <Stack
       sx={{
         minHeight: '100svh',
+        bgcolor(theme) {
+          return theme.palette.background.default;
+        }
       }}
     >
         <NavigationBar

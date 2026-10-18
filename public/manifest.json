@@ -1,0 +1,14 @@
+{
+  "$schema": "https://www.schemastore.org/web-manifest-combined.json",
+  "name": "Aboshi",
+  "background_color": "#fff",
+  "theme_color": "#fff",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "any"
+    }
+  ],
+  "start_url": "https://aboshi.vercel.app/",
+  "display": "standalone"
+}

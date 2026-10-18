@@ -6,7 +6,6 @@ import UserContext from "~/contexts/UserContext";
 import BottomNavs from "./bottom_navs";
 import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
-import { useTheme } from "@mui/material/styles";
 
 export async function loader({
   request
@@ -28,32 +27,28 @@ export async function loader({
 export default function Layout({
   loaderData
 }: Route.ComponentProps) {
-  const theme = useTheme();
   console.info(loaderData);
   return (
-    <>
-      <meta name="color-theme" content={theme.palette.background.default} />
-      <Stack
-        sx={{
-          minHeight: '100svh',
-          bgcolor(theme) {
-            return theme.palette.background.default;
-          },
-          color(theme) {
-            return theme.palette.text.primary;
-          },
-        }}
-      >
-          <NavigationBar
-            email={loaderData?.email}
-          />
-          <UserContext.Provider value={loaderData}>
-            <Box sx={{ flexGrow: 1 }}>
-              <Outlet />
-            </Box>
-          </UserContext.Provider>
-          <BottomNavs />
-      </Stack>
-    </>
+    <Stack
+      sx={{
+        minHeight: '100svh',
+        bgcolor(theme) {
+          return theme.palette.background.default;
+        },
+        color(theme) {
+          return theme.palette.text.primary;
+        },
+      }}
+    >
+      <NavigationBar
+        email={loaderData?.email}
+      />
+      <UserContext.Provider value={loaderData}>
+        <Box sx={{ flexGrow: 1 }}>
+          <Outlet />
+        </Box>
+      </UserContext.Provider>
+      <BottomNavs />
+    </Stack>
   );
 }

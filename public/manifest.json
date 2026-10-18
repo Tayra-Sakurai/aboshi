@@ -5,8 +5,20 @@
   "theme_color": "#fff",
   "icons": [
     {
-      "src": "/favicon.ico",
-      "sizes": "any"
+      "src": "/appicon-2000x2000.png",
+      "sizes": "2000x2000"
+    },
+    {
+      "src": "/appicon-256x256.png",
+      "sizes": "256x256"
+    },
+    {
+      "src": "/appicon-512x512.png",
+      "sizes": "512x512"
+    },
+    {
+      "src": "/appicon-192x192.png",
+      "sizes": "192x192"
     }
   ],
   "start_url": "https://aboshi.vercel.app/",

@@ -21,7 +21,7 @@ const headers: { label: string; key: keyof ItemDisplay; alignRight?: boolean }[]
   { label: "中分類", key: "mediumCategoryName" },
   { label: "小分類", key: "smallCategoryName" },
   { label: "項目名", key: "name" },
-  { label: "状態", key: "methodName" },
+  { label: "決済手段", key: "methodName" },
   { label: "収入", key: "income", alignRight: true },
   { label: "支出", key: "expense", alignRight: true },
 ];

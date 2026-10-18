@@ -44,7 +44,12 @@ export default function Layout({
         email={loaderData?.email}
       />
       <UserContext.Provider value={loaderData}>
-        <Box sx={{ flexGrow: 1 }}>
+        <Box
+          sx={{
+            flexGrow: 1,
+            marginTop: 4,
+          }}
+        >
           <Outlet />
         </Box>
       </UserContext.Provider>

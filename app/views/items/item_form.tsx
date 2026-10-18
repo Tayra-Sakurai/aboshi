@@ -98,7 +98,7 @@ export default function ItemForm({
       <input type="hidden" name="method_id" value={mtd ?? ''} />
       <input type="hidden" name="small_category_id" value={sc ?? ''} />
       <input type="hidden" name="timestamp" value={timestampValue} />
-      <Stack spacing={4} sx={{ marginTop: 4 }}>
+      <Stack spacing={4}>
         <LargeCategorySelect
           largeCategories={largeCategories}
           value={lc}

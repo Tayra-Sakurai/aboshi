@@ -3,6 +3,7 @@ export type MoneyStatusDisplay = {
   id: number;
   expense: number;
   income: number;
+  remainder: number;
 };
 
 export function getMoneyStatusTotal<T extends object & {
@@ -13,6 +14,7 @@ export function getMoneyStatusTotal<T extends object & {
 }>(ms: T): {
   expense: number;
   income: number;
+  remainder: number;
 } {
   let expense = 0;
   let income = 0;
@@ -22,9 +24,11 @@ export function getMoneyStatusTotal<T extends object & {
     else
       expense += amount;
   }
+  const remainder = income - expense;
   return {
     expense,
     income,
+    remainder,
   };
 }
 

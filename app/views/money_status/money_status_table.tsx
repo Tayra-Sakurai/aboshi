@@ -38,12 +38,13 @@ export default function MoneyStatusTable({
   useEffect(() => {
     const func = async () => {
       const displayVals: MoneyStatusDisplay[] = data.map(value => {
-        const { expense, income } = getMoneyStatusTotal(value);
+        const { expense, income, remainder } = getMoneyStatusTotal(value);
         return {
           id: value.id,
           name: value.name,
           expense,
           income,
+          remainder,
         };
       });
       if (displayVals.length > 0) {
@@ -106,6 +107,15 @@ export default function MoneyStatusTable({
                 onClick={requestSort('expense')}
               >
                 支出
+              </TableSortLabel>
+            </TableCell>
+            <TableCell align="right">
+              <TableSortLabel
+                active={sortBy === 'remainder'}
+                direction={sortBy === 'remainder' ? direction : 'asc'}
+                onClick={requestSort('remainder')}
+              >
+                残高
               </TableSortLabel>
             </TableCell>
             <TableCell>操作</TableCell>

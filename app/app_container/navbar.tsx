@@ -1,5 +1,11 @@
 import type React from "react";
 import HomeIcon from "@mui/icons-material/Home";
+import DescriptionIcon from "@mui/icons-material/Description";
+import CategoryIcon from "@mui/icons-material/Category";
+import ClassIcon from "@mui/icons-material/Class";
+import LocalOfferIcon from "@mui/icons-material/LocalOffer";
+import PaymentsIcon from "@mui/icons-material/Payments";
+import AddIcon from "@mui/icons-material/Add";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
@@ -79,10 +85,8 @@ export default function NavigationBar({
               <ListItem
                 key={label}
                 disablePadding
-                component={RouterLink}
-                to={path}
               >
-                <ListItemButton>
+                <ListItemButton component={RouterLink} to={path}>
                   {icon &&(
                     <ListItemIcon>
                       {icon}
@@ -114,5 +118,35 @@ const navs: Array<PageForNav> = [
     label: 'ダッシュボード',
     path: '/',
     icon: <HomeIcon />
+  },
+  {
+    label: '項目一覧',
+    path: '/items',
+    icon: <DescriptionIcon />
+  },
+  {
+    label: '大分類一覧',
+    path: '/large_categories',
+    icon: <CategoryIcon />
+  },
+  {
+    label: '中分類一覧',
+    path: '/medium_categories',
+    icon: <ClassIcon />
+  },
+  {
+    label: '小分類一覧',
+    path: '/small_categories',
+    icon: <LocalOfferIcon />
+  },
+  {
+    label: '状態一覧',
+    path: '/money_status',
+    icon: <PaymentsIcon />
+  },
+  {
+    label: '追加メニュー',
+    path: '/add',
+    icon: <AddIcon />
   }
-]
+];

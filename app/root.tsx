@@ -28,7 +28,25 @@ const theme: Theme = createTheme({
   colorSchemes: {
     light: true,
     dark: true,
-  }
+  },
+  typography: {
+    h1: {
+      fontWeight: 700,
+      fontSize: '3rem',
+    },
+    h2: {
+      fontWeight: 700,
+      fontSize: '2.75rem',
+    },
+    h3: {
+      fontSize: '2.5rem',
+      fontWeight: 500,
+    },
+    h4: {
+      fontSize: '2rem',
+      fontWeight: 500,
+    },
+  },
 });
 
 export function Layout({ children }: { children: React.ReactNode }) {

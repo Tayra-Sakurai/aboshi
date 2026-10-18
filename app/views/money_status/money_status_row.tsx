@@ -10,6 +10,7 @@ export default function MoneyStatusRow({
   name,
   expense,
   income,
+  remainder,
 }: Omit<MoneyStatusDisplay, "id"> & {
   cid: number;
 }) {
@@ -19,6 +20,7 @@ export default function MoneyStatusRow({
       <TableCell>{name}</TableCell>
       <TableCell align="right">{income}</TableCell>
       <TableCell align="right">{expense}</TableCell>
+      <TableCell align="right">{remainder}</TableCell>
       <TableCell>
         <IconButton
           component={Link}

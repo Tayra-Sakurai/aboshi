@@ -3,10 +3,11 @@ import VisibilityIcon from "@mui/icons-material/Visibility";
 import BottomNavigation from "@mui/material/BottomNavigation";
 import BottomNavigationAction from "@mui/material/BottomNavigationAction";
 import Box from "@mui/material/Box";
-import { useState } from "react";
+import { Link as RouterLink, useLocation } from "react-router";
 
 export default function BottomNavs() {
-  const [selection, setSelection] = useState<number>(0);
+  const location = useLocation();
+  const selection = /^\/add(?:\/|$)/i.test(location.pathname) ? 0 : 1;
 
   return (
     <Box
@@ -21,17 +22,18 @@ export default function BottomNavs() {
       <BottomNavigation
         showLabels
         value={selection}
-        onChange={(_, newValue) => setSelection(newValue)}
       >
         <BottomNavigationAction
           label="追加"
           icon={<AddIcon />}
-          href="/add"
+          component={RouterLink}
+          to="/add"
         />
         <BottomNavigationAction
           label="閲覧"
           icon={<VisibilityIcon />}
-          href="/"
+          component={RouterLink}
+          to="/"
         />
       </BottomNavigation>
     </Box>

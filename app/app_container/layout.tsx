@@ -34,7 +34,10 @@ export default function Layout({
         minHeight: '100svh',
         bgcolor(theme) {
           return theme.palette.background.default;
-        }
+        },
+        color(theme) {
+          return theme.palette.text.primary;
+        },
       }}
     >
         <NavigationBar

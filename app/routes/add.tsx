@@ -9,6 +9,7 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
+import { Link } from "react-router";
 
 export default function AddIndex() {
   return (
@@ -16,7 +17,7 @@ export default function AddIndex() {
       <Typography variant="h2" component="h2">項目を追加する</Typography>
       <List>
         <ListItem>
-          <ListItemButton href="/add/item">
+          <ListItemButton component={Link} to="/add/item">
             <ListItemIcon>
               <DescriptionIcon />
             </ListItemIcon>
@@ -24,7 +25,7 @@ export default function AddIndex() {
           </ListItemButton>
         </ListItem>
         <ListItem>
-          <ListItemButton href="/add/large_category">
+          <ListItemButton component={Link} to="/add/large_category">
             <ListItemIcon>
               <CategoryIcon />
             </ListItemIcon>
@@ -32,7 +33,7 @@ export default function AddIndex() {
           </ListItemButton>
         </ListItem>
         <ListItem>
-          <ListItemButton href="/add/medium_category">
+          <ListItemButton component={Link} to="/add/medium_category">
             <ListItemIcon>
               <ClassIcon />
             </ListItemIcon>
@@ -40,7 +41,7 @@ export default function AddIndex() {
           </ListItemButton>
         </ListItem>
         <ListItem>
-          <ListItemButton href="/add/small_category">
+          <ListItemButton component={Link} to="/add/small_category">
             <ListItemIcon>
               <TagIcon />
             </ListItemIcon>
@@ -48,7 +49,7 @@ export default function AddIndex() {
           </ListItemButton>
         </ListItem>
         <ListItem>
-          <ListItemButton href="/add/money_status">
+          <ListItemButton component={Link} to="/add/money_status">
             <ListItemIcon>
               <DescriptionIcon />
             </ListItemIcon>

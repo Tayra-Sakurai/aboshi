@@ -3,6 +3,7 @@ import type { SmallCategoryDisplay } from "./small_category_funcs"
 import TableCell from "@mui/material/TableCell";
 import IconButton from "@mui/material/IconButton";
 import EditIcon from "@mui/icons-material/Edit";
+import { Link } from "react-router";
 
 type SmallCategoryRowProps = {
   displayData: SmallCategoryDisplay;
@@ -34,7 +35,8 @@ export default function SmallCategoryRow({
       <TableCell align="right">{expense}</TableCell>
       <TableCell>
         <IconButton
-          href={`/edit/small_category/${id}`}
+          component={Link}
+          to={`/edit/small_category/${id}`}
           color="inherit"
         >
           <EditIcon />

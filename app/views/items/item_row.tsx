@@ -3,6 +3,7 @@ import TableRow from "@mui/material/TableRow";
 import type { ItemDisplay } from "./item_funcs";
 import TableCell from "@mui/material/TableCell";
 import IconButton from "@mui/material/IconButton";
+import { Link as RouterLink } from "react-router";
 
 type ItemRowProps = {
   displayData: ItemDisplay;
@@ -35,7 +36,8 @@ export default function ItemRow({
       <TableCell>
         <IconButton
           color="inherit"
-          href={`/edit/item/${id}`}
+          component={RouterLink}
+          to={`/edit/item/${id}`}
         >
           <EditIcon />
         </IconButton>

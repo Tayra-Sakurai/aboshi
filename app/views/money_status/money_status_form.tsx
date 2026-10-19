@@ -3,6 +3,7 @@ import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
 import TextField from "@mui/material/TextField";
 import { Form, type FormProps } from "react-router";
+import BackButton from "../back_button";
 
 type MoneyStatusFormProps = Omit<FormProps, "method" | "children"> & {
   name?: string;
@@ -22,6 +23,7 @@ export default function MoneyStatusForm({
           label="状態名"
           placeholder="状態名を入力"
         />
+        <BackButton />
         <Button
           type="submit"
           color="success"

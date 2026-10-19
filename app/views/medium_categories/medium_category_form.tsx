@@ -5,6 +5,7 @@ import { useState } from "react";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import SaveIcon from "@mui/icons-material/Save";
+import BackButton from "../back_button";
 
 type MediumCategoryFormProps = Omit<FormProps, "method" | "children"> & {
   largeCategories: {
@@ -39,6 +40,7 @@ export default function MediumCategoryForm({
           label="分類名"
           placeholder="分類名を入力"
         />
+        <BackButton />
         <Button
           startIcon={<SaveIcon />}
           color="success"

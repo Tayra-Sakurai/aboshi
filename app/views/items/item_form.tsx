@@ -14,6 +14,7 @@ import Radio from "@mui/material/Radio";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import SaveIcon from "@mui/icons-material/Save";
+import BackButton from "../back_button";
 
 type LargeCategory = Pick<Database["public"]["Tables"]["large_categories"]["Row"], "id" | "name">;
 type MediumCategory = Pick<Database["public"]["Tables"]["medium_categories"]["Row"], "id" | "name"> & {
@@ -158,6 +159,7 @@ export default function ItemForm({
           value={ts}
           onChange={(event) => setTs(event.target.value)}
         />
+        <BackButton />
         <Button
           variant="contained"
           color="success"

@@ -6,6 +6,7 @@ import MediumCategorySelect from "../medium_categories/medium_category_select";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import SaveIcon from "@mui/icons-material/Save";
+import BackButton from "../back_button";
 
 type SmallCategoryFormProps = {
   data?: {
@@ -131,6 +132,7 @@ export default function SmallCategoryForm({
           value={cmonthly}
           onChange={(event) => setCmonthly(parseFloat(event.target.value))}
         />
+        <BackButton />
         <Button
           type="submit"
           color="success"

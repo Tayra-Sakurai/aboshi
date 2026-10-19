@@ -1,6 +1,7 @@
 {
   "$schema": "https://www.schemastore.org/web-manifest-combined.json",
   "name": "Aboshi",
+  "description": "Aboshi is an App to manage your monthly budget.",
   "background_color": "#fff",
   "theme_color": "#fff",
   "icons": [
@@ -17,6 +18,20 @@
       "sizes": "192x192"
     }
   ],
-  "start_url": "https://aboshi.vercel.app/",
+  "screenshots": [
+    {
+      "src": "/images/screenshot-wide.png",
+      "type": "image/png",
+      "sizes": "1920x1128",
+      "form_factor": "wide"
+    },
+    {
+      "src": "/images/screenshot-narrow.jpg",
+      "form_factor": "narrow",
+      "type": "image/jpeg",
+      "sizes": "1170x2391"
+    }
+  ],
+  "start_url": "/",
   "display": "standalone"
 }

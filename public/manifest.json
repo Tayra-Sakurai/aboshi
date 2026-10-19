@@ -5,10 +5,6 @@
   "theme_color": "#fff",
   "icons": [
     {
-      "src": "/appicon-2000x2000.png",
-      "sizes": "2000x2000"
-    },
-    {
       "src": "/appicon-256x256.png",
       "sizes": "256x256"
     },

@@ -8,6 +8,7 @@ export default [
         [
           route('login', './auth/login.tsx'),
           route('login_wait', './auth/login_wait.tsx'),
+          route('logout', './auth/logout.tsx'),
         ]
       ),
       layout('./views/view_base.tsx',

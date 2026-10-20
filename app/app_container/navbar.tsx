@@ -12,7 +12,7 @@ import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import Typography from "@mui/material/Typography";
 import Drawer from "@mui/material/Drawer";
-import { useState } from "react";
+import { useState, type MouseEvent } from "react";
 import Box from "@mui/material/Box";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
@@ -22,6 +22,10 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import LoginIcon from "@mui/icons-material/Login";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import Menu from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
+import Avatar from "@mui/material/Avatar";
+import LogoutIcon from "@mui/icons-material/Logout";
 
 export default function NavigationBar({
   email
@@ -29,6 +33,10 @@ export default function NavigationBar({
   email?: string | null
 }) {
   const [open, setOpen] = useState<boolean>(false);
+  const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null);
+
+  const handleMenu = (event: MouseEvent<HTMLElement>) => setAnchorEl(event.currentTarget);
+  const handleClose = () => setAnchorEl(null);
 
   return (
     <>
@@ -52,19 +60,54 @@ export default function NavigationBar({
           >
             Aboshi
           </Typography>
-          <IconButton
-            size="large"
-            color="inherit"
-            edge="end"
-            sx={{ mr: 2 }}
-            component={RouterLink}
-            to={email ? "/" : "/auth/login"}
-          >
-            {email ?
-              <AccountCircleIcon /> :
-              <LoginIcon />
-            }
-          </IconButton>
+          {email ?
+            (
+              <div>
+                <IconButton
+                  size="large"
+                  color="inherit"
+                  onClick={handleMenu}
+                >
+                  <AccountCircleIcon />
+                </IconButton>
+                <Menu
+                  open={Boolean(anchorEl)}
+                  onClose={handleClose}
+                  anchorEl={anchorEl}
+                  anchorOrigin={{
+                    vertical: 'top',
+                    horizontal: 'right',
+                  }}
+                  transformOrigin={{
+                    vertical: 'top',
+                    horizontal: 'right',
+                  }}
+                >
+                  <MenuItem onClick={handleClose}>
+                    <Avatar /> {email} さん
+                  </MenuItem>
+                  <MenuItem
+                    onClick={handleClose}
+                    href="/auth/logout"
+                  >
+                    <ListItemIcon>
+                      <LogoutIcon />
+                    </ListItemIcon>
+                    <ListItemText primary="ログアウト" />
+                  </MenuItem>
+                </Menu>
+              </div>
+            ) :
+            (
+              <IconButton
+                size="large"
+                color="inherit"
+                href="/auth/login"
+              >
+                <LoginIcon />
+              </IconButton>
+            )
+          }
         </Toolbar>
       </AppBar>
       <Drawer

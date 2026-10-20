@@ -1,8 +1,9 @@
 import { createClient } from "~/utils/supabase.server";
 import type { Route } from "./+types/small_categories_view";
-import { data } from "react-router";
+import { data, Link as RouterLink } from "react-router";
 import Typography from "@mui/material/Typography";
 import SmallCategoriesTable from "./small_categories_table";
+import Link from "@mui/material/Link";
 
 export function meta(): Route.MetaDescriptors {
   return [
@@ -56,6 +57,7 @@ export default function SmallCategoriesView({
   return (
     <>
       <Typography variant="h2" component="h2">小分類</Typography>
+      <p><Link component={RouterLink} to="/add/small_category">新規</Link></p>
       <SmallCategoriesTable smallCategories={loaderData} />
     </>
   );

@@ -1,8 +1,9 @@
 import { createClient } from "~/utils/supabase.server";
 import type { Route } from "./+types/medium_categories_view";
-import { data } from "react-router";
+import { data, Link as RouterLink } from "react-router";
 import Typography from "@mui/material/Typography";
 import MediumCategoriesTable from "./medium_categories_table";
+import Link from "@mui/material/Link";
 
 export function meta(): Route.MetaDescriptors {
   return [
@@ -50,6 +51,7 @@ export default function MediumCategoriesView({
   return (
     <>
       <Typography variant="h2" component="h2">中分類</Typography>
+      <p><Link component={RouterLink} to="/add/medium_category">新規</Link></p>
       <MediumCategoriesTable mediumCategories={loaderData} />
     </>
   );

@@ -1,9 +1,10 @@
 import { createClient } from "~/utils/supabase.server";
 import type { Route } from "./+types/items_view";
-import { data } from "react-router";
+import { data, Link as RouterLink } from "react-router";
 import Typography from "@mui/material/Typography";
 import ItemsTable from "./items_table";
 import { getItemExpenseIncome, type ItemDisplay } from "./item_funcs";
+import Link from "@mui/material/Link";
 
 export function meta(): Route.MetaDescriptors {
   return [
@@ -52,6 +53,7 @@ export default function ItemsView({ loaderData }: Route.ComponentProps) {
   return (
     <>
       <Typography variant="h2" component="h2">項目一覧</Typography>
+      <p><Link component={RouterLink} to="/add/item">項目を追加</Link></p>
       <ItemsTable items={loaderData} />
     </>
   );

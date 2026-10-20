@@ -2,6 +2,8 @@ import { createClient } from "~/utils/supabase.server";
 import type { Route } from "./+types/large_categories_view";
 import Typography from "@mui/material/Typography";
 import LargeCategoriesTable from "./large_categories_table";
+import { data, Link as RouterLink } from "react-router";
+import Link from "@mui/material/Link";
 
 export function meta(): Route.MetaDescriptors {
   return [
@@ -16,13 +18,13 @@ export function meta(): Route.MetaDescriptors {
 export async function loader({
   request
 }: Route.LoaderArgs) {
-  const { supabase } = createClient(request);
-  const { data, error } = await supabase
+  const { supabase, headers } = createClient(request);
+  const { data: d, error } = await supabase
     .from('large_categories')
     .select('id, name, medium_categories(small_categories(items(amount, is_income)))');
   if (error)
     throw error;
-  return data;
+  return data(d, { headers });
 }
 
 export default function LargeCategoriesView({
@@ -31,6 +33,7 @@ export default function LargeCategoriesView({
   return (
     <>
       <Typography variant="h2" component="h2">大分類一覧</Typography>
+      <p><Link component={RouterLink} to="/add/large_category">項目を追加</Link></p>
       <LargeCategoriesTable largeCategories={loaderData} />
     </>
   );

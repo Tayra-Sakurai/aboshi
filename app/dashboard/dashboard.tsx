@@ -38,7 +38,7 @@ export default function Dashboard() {
     <Stack spacing={4}>
       <Typography component="h2" variant="h2">
         {userContext?.email ?
-          `ようこそ、${userContext.email}さん` :
+          'ようこそ' :
           "はじめまして"
         }
       </Typography>

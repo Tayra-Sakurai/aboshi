@@ -5,6 +5,16 @@ import LargeCategoryForm from "./large_category_form";
 import { Form, redirect } from "react-router";
 import Button from "@mui/material/Button";
 
+export function meta(): Route.MetaDescriptors {
+  return [
+    { title: "大分類を編集 | Aboshi" },
+    {
+      name: "description",
+      content: "登録済みの大分類を編集または削除します。",
+    },
+  ];
+}
+
 export async function loader({
   request,
   params: {

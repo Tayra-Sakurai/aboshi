@@ -4,6 +4,16 @@ import { data } from "react-router";
 import Typography from "@mui/material/Typography";
 import SmallCategoriesTable from "./small_categories_table";
 
+export function meta(): Route.MetaDescriptors {
+  return [
+    { title: "小分類一覧 | Aboshi" },
+    {
+      name: "description",
+      content: "登録した小分類と予算、関連する収支項目を確認できます。",
+    },
+  ];
+}
+
 export async function loader({
   request,
   params: {

@@ -2,6 +2,16 @@ import { createClient } from "~/utils/supabase.server";
 import type { Route } from "./+types/logout";
 import { data, redirect } from "react-router";
 
+export function meta(): Route.MetaDescriptors {
+  return [
+    { title: "ログアウト | Aboshi" },
+    {
+      name: "description",
+      content: "Aboshiからログアウトしています。",
+    },
+  ];
+}
+
 export async function loader({
   request
 }: Route.LoaderArgs) {

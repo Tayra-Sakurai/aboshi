@@ -4,6 +4,16 @@ import { data, redirect } from "react-router";
 import ItemForm from "./item_form";
 import { getItemFormValues } from "./item_funcs";
 
+export function meta(): Route.MetaDescriptors {
+  return [
+    { title: "項目を追加 | Aboshi" },
+    {
+      name: "description",
+      content: "収入または支出の項目を登録します。",
+    },
+  ];
+}
+
 export async function loader({ request }: Route.LoaderArgs) {
   const { supabase, headers } = createClient(request);
   const [

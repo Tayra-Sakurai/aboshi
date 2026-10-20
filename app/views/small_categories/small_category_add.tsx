@@ -3,6 +3,16 @@ import SmallCategoryForm from "./small_category_form";
 import { data, redirect } from "react-router";
 import type { Route } from "./+types/small_category_add";
 
+export function meta(): Route.MetaDescriptors {
+  return [
+    { title: "小分類を追加 | Aboshi" },
+    {
+      name: "description",
+      content: "中分類と月間予算を設定して、新しい小分類を登録します。",
+    },
+  ];
+}
+
 export async function loader({
   request
 }: Route.LoaderArgs) {

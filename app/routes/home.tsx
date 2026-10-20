@@ -3,8 +3,11 @@ import Dashboard from "~/dashboard/dashboard";
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "Aboshi" },
-    { name: "description", content: "Aboshiトップ" },
+    { title: "ホーム | Aboshi" },
+    {
+      name: "description",
+      content: "収支項目や分類、状態を閲覧・追加できるAboshiのホーム画面です。",
+    },
   ];
 }
 

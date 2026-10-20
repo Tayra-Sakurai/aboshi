@@ -6,6 +6,16 @@ import { data, Form, redirect } from "react-router";
 import ItemForm from "./item_form";
 import { getItemFormValues } from "./item_funcs";
 
+export function meta(): Route.MetaDescriptors {
+  return [
+    { title: "項目を編集 | Aboshi" },
+    {
+      name: "description",
+      content: "登録済みの収入・支出項目を編集または削除します。",
+    },
+  ];
+}
+
 export async function loader({
   request,
   params: { cid },

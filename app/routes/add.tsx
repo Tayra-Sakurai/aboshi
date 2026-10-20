@@ -10,6 +10,17 @@ import ListItemText from "@mui/material/ListItemText";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import { Link } from "react-router";
+import type { Route } from "./+types/add";
+
+export function meta(): Route.MetaDescriptors {
+  return [
+    { title: "追加メニュー | Aboshi" },
+    {
+      name: "description",
+      content: "収支項目や分類、状態を追加する画面を選択できます。",
+    },
+  ];
+}
 
 export default function AddIndex() {
   return (

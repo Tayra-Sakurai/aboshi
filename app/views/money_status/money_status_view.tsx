@@ -4,6 +4,16 @@ import { data } from "react-router";
 import Typography from "@mui/material/Typography";
 import MoneyStatusTable from "./money_status_table";
 
+export function meta(): Route.MetaDescriptors {
+  return [
+    { title: "状態一覧 | Aboshi" },
+    {
+      name: "description",
+      content: "登録した状態と、状態ごとの収支項目を確認できます。",
+    },
+  ];
+}
+
 export async function loader({
   request
 }: Route.LoaderArgs) {

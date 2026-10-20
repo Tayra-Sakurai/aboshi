@@ -3,6 +3,16 @@ import type { Route } from "./+types/large_category_add";
 import LargeCategoryForm from "./large_category_form";
 import { data, redirect } from "react-router";
 
+export function meta(): Route.MetaDescriptors {
+  return [
+    { title: "大分類を追加 | Aboshi" },
+    {
+      name: "description",
+      content: "新しい大分類を登録します。",
+    },
+  ];
+}
+
 export async function action({
   request
 }: Route.ActionArgs) {

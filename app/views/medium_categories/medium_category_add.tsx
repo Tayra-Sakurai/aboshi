@@ -3,6 +3,16 @@ import type { Route } from "./+types/medium_category_add";
 import MediumCategoryForm from "./medium_category_form";
 import { data, redirect } from "react-router";
 
+export function meta(): Route.MetaDescriptors {
+  return [
+    { title: "中分類を追加 | Aboshi" },
+    {
+      name: "description",
+      content: "大分類を指定して、新しい中分類を登録します。",
+    },
+  ];
+}
+
 export async function loader({
   request
 }: Route.LoaderArgs) {

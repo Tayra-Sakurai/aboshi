@@ -5,6 +5,16 @@ import { data, Form, redirect } from "react-router";
 import Button from "@mui/material/Button";
 import DeleteIcon from "@mui/icons-material/Delete";
 
+export function meta(): Route.MetaDescriptors {
+  return [
+    { title: "中分類を編集 | Aboshi" },
+    {
+      name: "description",
+      content: "登録済みの中分類と所属する大分類を編集または削除します。",
+    },
+  ];
+}
+
 export async function loader({
   request,
   params: {

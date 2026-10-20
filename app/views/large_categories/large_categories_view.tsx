@@ -3,6 +3,16 @@ import type { Route } from "./+types/large_categories_view";
 import Typography from "@mui/material/Typography";
 import LargeCategoriesTable from "./large_categories_table";
 
+export function meta(): Route.MetaDescriptors {
+  return [
+    { title: "大分類一覧 | Aboshi" },
+    {
+      name: "description",
+      content: "登録した大分類と、その分類に属する項目を確認できます。",
+    },
+  ];
+}
+
 export async function loader({
   request
 }: Route.LoaderArgs) {

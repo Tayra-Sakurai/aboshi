@@ -2,6 +2,16 @@ import { createClient } from "~/utils/supabase.server";
 import type { Route } from "./+types/deletion";
 import { redirect } from "react-router";
 
+export function meta(): Route.MetaDescriptors {
+  return [
+    { title: "削除中 | Aboshi" },
+    {
+      name: "description",
+      content: "選択した項目を削除しています。",
+    },
+  ];
+}
+
 export async function action({
   request
 }: Route.ActionArgs) {

@@ -5,6 +5,16 @@ import MoneyStatusForm from "./money_status_form";
 import { data, Form, redirect } from "react-router";
 import Button from "@mui/material/Button";
 
+export function meta(): Route.MetaDescriptors {
+  return [
+    { title: "状態を編集 | Aboshi" },
+    {
+      name: "description",
+      content: "登録済みの状態を編集または削除します。",
+    },
+  ];
+}
+
 export async function loader({
   request,
   params: {

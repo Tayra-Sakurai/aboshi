@@ -11,11 +11,11 @@ import { createClient } from "~/utils/supabase.server";
 export function meta(): Route.MetaDescriptors {
   return [
     {
-      title: 'ログイン',
+      title: 'ログイン | Aboshi',
     },
     {
       name: 'description',
-      content: 'Aboshiにログイン',
+      content: 'メールアドレスを使ってAboshiにログインします。',
     },
   ];
 }

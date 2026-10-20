@@ -5,6 +5,16 @@ import Typography from "@mui/material/Typography";
 import ItemsTable from "./items_table";
 import { getItemExpenseIncome, type ItemDisplay } from "./item_funcs";
 
+export function meta(): Route.MetaDescriptors {
+  return [
+    { title: "項目一覧 | Aboshi" },
+    {
+      name: "description",
+      content: "登録した収入・支出の項目を一覧で確認できます。",
+    },
+  ];
+}
+
 export async function loader({ request }: Route.LoaderArgs) {
   const { supabase, headers } = createClient(request);
   const { data: items, error } = await supabase

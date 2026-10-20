@@ -4,6 +4,16 @@ import { data } from "react-router";
 import Typography from "@mui/material/Typography";
 import MediumCategoriesTable from "./medium_categories_table";
 
+export function meta(): Route.MetaDescriptors {
+  return [
+    { title: "中分類一覧 | Aboshi" },
+    {
+      name: "description",
+      content: "登録した中分類と、関連する大分類・項目を確認できます。",
+    },
+  ];
+}
+
 export async function loader({
   request,
   params: {

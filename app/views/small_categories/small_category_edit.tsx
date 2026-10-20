@@ -6,6 +6,16 @@ import Button from "@mui/material/Button";
 import DeleteIcon from "@mui/icons-material/Delete";
 import Alert from "@mui/material/Alert";
 
+export function meta(): Route.MetaDescriptors {
+  return [
+    { title: "小分類を編集 | Aboshi" },
+    {
+      name: "description",
+      content: "登録済みの小分類、所属する中分類、月間予算を編集または削除します。",
+    },
+  ];
+}
+
 export async function loader({
   request,
   params: {

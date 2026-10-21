@@ -22,6 +22,7 @@ export default function MoneyStatusForm({
           fullWidth
           label="状態名"
           placeholder="状態名を入力"
+          required
         />
         <BackButton />
         <Button

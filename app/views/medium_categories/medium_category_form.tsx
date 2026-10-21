@@ -35,6 +35,7 @@ export default function MediumCategoryForm({
         <TextField
           type="text"
           name="name"
+          required
           defaultValue={name}
           fullWidth
           label="分類名"

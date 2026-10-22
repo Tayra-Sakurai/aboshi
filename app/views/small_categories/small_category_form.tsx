@@ -138,6 +138,7 @@ export default function SmallCategoryForm({
           color="success"
           startIcon={<SaveIcon />}
           fullWidth
+          variant="contained"
         >
           保存
         </Button>

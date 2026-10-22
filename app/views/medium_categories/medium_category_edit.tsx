@@ -89,6 +89,7 @@ export default function MediumCategoryEdit({
           color="error"
           startIcon={<DeleteIcon />}
           fullWidth
+          variant="contained"
         >
           削除
         </Button>

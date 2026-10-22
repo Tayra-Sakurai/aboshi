@@ -36,7 +36,7 @@ export default function PasswordForm({
           type="password"
           autoComplete={setup ? 'new-password' : 'current-password'}
           label="パスワード"
-          placeholder="新しいパスワード"
+          placeholder={setup ? '新しいパスワード' : 'パスワード'}
           fullWidth
           required
           value={pswd}

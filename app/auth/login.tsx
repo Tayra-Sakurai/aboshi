@@ -7,6 +7,7 @@ import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
 import Alert from "@mui/material/Alert";
 import { createClient } from "~/utils/supabase.server";
+import PasswordIcon from "@mui/icons-material/Password";
 
 export function meta(): Route.MetaDescriptors {
   return [
@@ -69,6 +70,15 @@ export default function Login({
           variant="contained"
         >
           送信
+        </Button>
+        <Button
+          type="submit"
+          color="primary"
+          variant="contained"
+          startIcon={<PasswordIcon />}
+          formAction="/auth/sign_in_password"
+        >
+          パスワードでログイン
         </Button>
       </Stack>
     </Form>

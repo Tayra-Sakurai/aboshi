@@ -23,13 +23,14 @@ export default function LoginSignIn() {
         width: '100%',
         boxSizing: 'border-box',
       }}
+      variant="outlined"
     >
       <CardHeader
         title="Aboshi"
         avatar={
           <Avatar
             sx={{
-              color: deepPurple[500],
+              bgcolor: deepPurple[500],
             }}
           />
         }

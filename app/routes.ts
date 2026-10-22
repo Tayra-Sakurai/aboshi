@@ -9,6 +9,9 @@ export default [
           route('login', './auth/login.tsx'),
           route('login_wait', './auth/login_wait.tsx'),
           route('logout', './auth/logout.tsx'),
+          route('reset_password', './auth/reset_password.tsx'),
+          route('set_password', './auth/setup_password.tsx'),
+          route('sign_in_password', './auth/sign_in_password.tsx'),
         ]
       ),
       layout('./views/view_base.tsx',

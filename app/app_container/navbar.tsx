@@ -26,6 +26,7 @@ import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import Avatar from "@mui/material/Avatar";
 import LogoutIcon from "@mui/icons-material/Logout";
+import PasswordIcon from "@mui/icons-material/Password";
 
 export default function NavigationBar({
   email
@@ -85,6 +86,17 @@ export default function NavigationBar({
                 >
                   <MenuItem onClick={handleClose}>
                     <Avatar /> {email} さん
+                  </MenuItem>
+                  <MenuItem onClick={handleClose}>
+                    <ListItemButton
+                      component={RouterLink}
+                      to="/auth/set_password"
+                    >
+                      <ListItemIcon>
+                        <PasswordIcon />
+                      </ListItemIcon>
+                      <ListItemText primary="パスワード" />
+                    </ListItemButton>
                   </MenuItem>
                   <MenuItem
                     onClick={handleClose}

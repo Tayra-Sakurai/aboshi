@@ -15,16 +15,13 @@ export function meta(): Route.MetaDescriptors {
   ];
 }
 
-export async function loader() {
-  throw data(null, 400);
-}
-
 export async function action({
   request
 }: Route.ActionArgs) {
   const formData = await request.formData();
   const email = formData.get('email');
   const password = formData.get('password');
+  console.info(email);
   if (email && typeof email === 'string') {
     if (password && typeof password === 'string') {
       const { supabase, headers } = createClient(request);
@@ -45,6 +42,7 @@ export default function SingInPassword({
   actionData
 }: Route.ComponentProps) {
   if (!actionData) {
+    console.error('Invalid data');
     throw new Error('Bad data was sent.');
   }
   return <PasswordForm email={actionData.email} />;

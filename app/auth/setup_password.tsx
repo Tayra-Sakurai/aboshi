@@ -3,6 +3,18 @@ import type { Route } from "./+types/setup_password";
 import PasswordForm from "./password_form";
 import { redirect } from "react-router";
 
+export function meta(): Route.MetaDescriptors {
+  return [
+    {
+      title: 'パスワードを設定 | Aboshi',
+    },
+    {
+      name: 'description',
+      content: 'パスワードを設定します。',
+    },
+  ];
+}
+
 export async function action({
   request
 }: Route.ActionArgs) {

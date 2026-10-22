@@ -100,12 +100,16 @@ export default function NavigationBar({
                   </MenuItem>
                   <MenuItem
                     onClick={handleClose}
-                    href="/auth/logout"
                   >
-                    <ListItemIcon>
-                      <LogoutIcon />
-                    </ListItemIcon>
-                    <ListItemText primary="ログアウト" />
+                    <ListItemButton
+                      component={RouterLink}
+                      to="/auth/logout"
+                    >
+                      <ListItemIcon>
+                        <LogoutIcon />
+                      </ListItemIcon>
+                      <ListItemText primary="ログアウト" />
+                    </ListItemButton>
                   </MenuItem>
                 </Menu>
               </div>

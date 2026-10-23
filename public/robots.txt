@@ -1,0 +1,4 @@
+Allow: /
+Disallow: /auth/reset_password
+Disallow: /auth/set_password
+Disallow: /auth/sign_in_password

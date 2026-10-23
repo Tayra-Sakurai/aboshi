@@ -2,6 +2,18 @@ import { createClient } from "~/utils/supabase.server";
 import type { Route } from "./+types/reset_password";
 import { data } from "react-router";
 
+export function meta(): Route.MetaDescriptors {
+  return [
+    {
+      title: 'パスワードを再設定 | Aboshi',
+    },
+    {
+      name: 'description',
+      content: 'パスワード再設定用のメールを送信しました。',
+    },
+  ];
+}
+
 export async function action({
   request
 }: Route.ActionArgs) {

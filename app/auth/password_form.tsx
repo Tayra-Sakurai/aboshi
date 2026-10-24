@@ -31,6 +31,7 @@ export default function PasswordForm({
       {email && <input type="hidden" name="email" value={email} />}
       <Stack spacing={4}>
         <Typography variant="h3" component="h3">パスワードの{setup ? '設定' : '入力'}</Typography>
+        {email && <Typography variant="body1" component="div">{email} さん</Typography>}
         <TextField
           name="password"
           type="password"

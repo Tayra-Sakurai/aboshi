@@ -11,9 +11,7 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
-import { useContext } from "react";
 import { Link as RouterLink } from "react-router";
-import UserContext from "~/contexts/UserContext";
 
 const viewLinks = [
   { label: "項目一覧", path: "/items", icon: <DescriptionIcon /> },
@@ -32,15 +30,10 @@ const addLinks = [
 ];
 
 export default function Dashboard() {
-  const userContext = useContext(UserContext);
-
   return (
     <Stack spacing={4}>
       <Typography component="h2" variant="h2">
-        {userContext?.email ?
-          'ようこそ' :
-          "はじめまして"
-        }
+        ようこそ
       </Typography>
       <section>
         <Typography component="h3" variant="h3">

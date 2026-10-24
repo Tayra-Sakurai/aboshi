@@ -2,7 +2,6 @@ import { data, Outlet } from "react-router";
 import type { Route } from "./+types/layout";
 import NavigationBar from "./navbar";
 import { createClient } from "~/utils/supabase.server";
-import UserContext from "~/contexts/UserContext";
 import BottomNavs from "./bottom_navs";
 import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
@@ -43,16 +42,14 @@ export default function Layout({
       <NavigationBar
         email={loaderData?.email}
       />
-      <UserContext.Provider value={loaderData}>
-        <Box
-          sx={{
-            flexGrow: 1,
-            marginTop: 4,
-          }}
-        >
-          <Outlet />
-        </Box>
-      </UserContext.Provider>
+      <Box
+        sx={{
+          flexGrow: 1,
+          marginTop: 4,
+        }}
+      >
+        <Outlet />
+      </Box>
       <BottomNavs />
     </Stack>
   );

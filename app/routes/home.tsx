@@ -18,9 +18,7 @@ export async function loader({
 }: Route.LoaderArgs) {
   const { supabase, headers } = createClient(request);
   const { data: { user }, error } = await supabase.auth.getUser();
-  if (error)
-    throw error;
-  else if (!user)
+  if (!user)
     throw redirect('/auth/login', { headers });
   return data(user, { headers });
 }

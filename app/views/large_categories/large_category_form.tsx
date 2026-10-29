@@ -21,6 +21,7 @@ export default function LargeCategoryForm({
           fullWidth
           label="分類名"
           placeholder="分類名を入力"
+          required
         />
         <BackButton />
         <Button

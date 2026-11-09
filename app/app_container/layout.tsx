@@ -10,7 +10,7 @@ export async function loader({
   request
 }: Route.LoaderArgs) {
   const { supabase, headers } = createClient(request);
-  console.info(request.headers.getSetCookie())
+  console.info(request.headers.getSetCookie());
   const code = new URL(request.url).searchParams.get('code');
   if (code) {
     const { error } = await supabase.auth.exchangeCodeForSession(code);

@@ -4,6 +4,7 @@ import TableCell from "@mui/material/TableCell";
 import IconButton from "@mui/material/IconButton";
 import { Link } from "react-router";
 import type { MoneyStatusDisplay } from "./money_status";
+import useMediaQuery from "@mui/material/useMediaQuery";
 
 export default function MoneyStatusRow({
   cid,
@@ -14,12 +15,19 @@ export default function MoneyStatusRow({
 }: Omit<MoneyStatusDisplay, "id"> & {
   cid: number;
 }) {
+  const isWide = useMediaQuery(theme => theme.breakpoints.up('md'));
+
   return (
     <TableRow>
       <TableCell>{cid}</TableCell>
       <TableCell>{name}</TableCell>
-      <TableCell align="right">{income}</TableCell>
-      <TableCell align="right">{expense}</TableCell>
+      {isWide ?
+        <>
+          <TableCell align="right">{income}</TableCell>
+          <TableCell align="right">{expense}</TableCell>
+        </> :
+        null
+      }
       <TableCell align="right">{remainder}</TableCell>
       <TableCell>
         <IconButton

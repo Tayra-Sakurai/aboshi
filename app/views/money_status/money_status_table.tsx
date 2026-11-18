@@ -10,6 +10,7 @@ import TableCell from "@mui/material/TableCell";
 import TableSortLabel from "@mui/material/TableSortLabel";
 import TableBody from "@mui/material/TableBody";
 import MoneyStatusRow from "./money_status_row";
+import useMediaQuery from "@mui/material/useMediaQuery";
 
 type MoneyStatus = Omit<
   Database["public"]["Tables"]["money_status"]["Row"],
@@ -34,6 +35,8 @@ export default function MoneyStatusTable({
   const [sortBy, setSortBy] = useState<keyof MoneyStatusDisplay>('name');
   const [direction, setDirection] = useState<MuiDirection>('asc');
   const [displayValues, setDisplayValues] = useState<MoneyStatusDisplay[]>([]);
+
+  const isWide = useMediaQuery(theme => theme.breakpoints.up('md'));
 
   useEffect(() => {
     const func = async () => {
@@ -91,24 +94,29 @@ export default function MoneyStatusTable({
                 名称
               </TableSortLabel>
             </TableCell>
-            <TableCell align="right">
-              <TableSortLabel
-                active={sortBy === 'income'}
-                direction={sortBy === 'income' ? direction : 'asc'}
-                onClick={requestSort('income')}
-              >
-                収入
-              </TableSortLabel>
-            </TableCell>
-            <TableCell align="right">
-              <TableSortLabel
-                active={sortBy === 'expense'}
-                direction={sortBy === 'expense' ? direction : 'asc'}
-                onClick={requestSort('expense')}
-              >
-                支出
-              </TableSortLabel>
-            </TableCell>
+            {isWide ?
+              <>
+                <TableCell align="right">
+                  <TableSortLabel
+                    active={sortBy === 'income'}
+                    direction={sortBy === 'income' ? direction : 'asc'}
+                    onClick={requestSort('income')}
+                  >
+                    収入
+                  </TableSortLabel>
+                </TableCell>
+                <TableCell align="right">
+                  <TableSortLabel
+                    active={sortBy === 'expense'}
+                    direction={sortBy === 'expense' ? direction : 'asc'}
+                    onClick={requestSort('expense')}
+                  >
+                    支出
+                  </TableSortLabel>
+                </TableCell>
+              </> :
+              null
+            }
             <TableCell align="right">
               <TableSortLabel
                 active={sortBy === 'remainder'}

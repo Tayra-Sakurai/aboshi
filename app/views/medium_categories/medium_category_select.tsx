@@ -49,7 +49,7 @@ export default function MediumCategorySelect({
   return (
     <Autocomplete
       options={selectionOptions}
-      renderInput={(params) => <TextField label="中分類" {...params} />}
+      renderInput={(params) => <TextField label="中分類" required {...params} />}
       getOptionLabel={(option: MediumCategorySelectOption) => option.name}
       groupBy={(option: MediumCategorySelectOption) => option.large_categories.name}
       getOptionValue={(option: MediumCategorySelectOption) => option.id}

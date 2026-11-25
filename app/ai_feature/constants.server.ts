@@ -1,4 +1,4 @@
-export const DEFAULT_MODEL = 'models/gemini-4-neon';
+export const DEFAULT_MODEL = 'models/gemini-4-hydrogen';
 
 export const SYSTEM_INSTRUCTION_IMAGE = `You are an agent who helps the user with adding an item to the database.
 

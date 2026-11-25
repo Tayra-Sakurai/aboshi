@@ -81,6 +81,7 @@ function FunctionCallCard({
     <Form method="post">
       <input type="hidden" value={step.name} name="name" />
       <input type="hidden" value={JSON.stringify(step.arguments)} name="args" />
+      <input type="hidden" value={step.id} name="step_id" />
       <Collapse
         in={open}
       >
@@ -144,7 +145,26 @@ export default function ChatCard({
         <CardFooter text={interaction.output_text ?? ''} />
       </Card>
     );
-  } else if (input && typeof input === 'string') {
+  } else if (interaction?.steps) {
+    return (
+      <>
+        {interaction.steps.map(step => {
+          if (step.type === 'function_call')
+            return <FunctionCallCard step={step} />;
+        })}
+      </>
+    );
+  } else if ((interaction?.input) || (input && typeof input === 'string')) {
+    let text: string = '';
+    if (typeof interaction?.input === 'string') {
+      text = interaction.input;
+    } else if (interaction?.input instanceof Array) {
+      text = interaction.input.find(value => 'text' in value)?.text ?? '';
+    } else if (interaction?.input && 'text' in interaction.input) {
+      text = interaction.input.text;
+    } else if (typeof input === 'string') {
+      text = input;
+    }
     return (
       <Card variant="outlined">
         <CardHeader
@@ -153,12 +173,12 @@ export default function ChatCard({
             color: "#fff",
           }} />}
           title="あなた"
-          subheader={formatter.format(new Date())}
+          subheader={formatter.format(interaction?.created ? new Date(interaction.created) : new Date())}
         />
         <CardContent>
-          <Markdown remarkPlugins={[remarkGfm]}>{input}</Markdown>
+          <Markdown remarkPlugins={[remarkGfm]}>{text}</Markdown>
         </CardContent>
-        <CardFooter text={input} />
+        <CardFooter text={text} />
       </Card>
     );
   } else if (input instanceof Array) {

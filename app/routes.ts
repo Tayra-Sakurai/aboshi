@@ -4,6 +4,7 @@ export default [
   layout('./app_container/layout.tsx',
     [
       index('./routes/home.tsx'),
+      route('chat/:chatid?', './chat/chat_page.tsx'),
       route('auth', './auth/auth.tsx',
         [
           route('login', './auth/login.tsx'),

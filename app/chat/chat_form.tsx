@@ -7,6 +7,7 @@ import Paper from "@mui/material/Paper";
 import Select from "@mui/material/Select";
 import Stack from "@mui/material/Stack";
 import TextField from "@mui/material/TextField";
+import { useEffect, useState } from "react";
 import { Form } from "react-router";
 
 type ChatFormProps = {
@@ -49,7 +50,7 @@ export default function ChatForm({
             defaultValue={defaultModel}
             required
           >
-            {models.map(({displayName, name}) => <MenuItem value={name}>{displayName}</MenuItem>)}
+            {models.map(({name, displayName}) => <MenuItem value={name}>{displayName}</MenuItem>)}
           </Select>
         </Stack>
       </Paper>

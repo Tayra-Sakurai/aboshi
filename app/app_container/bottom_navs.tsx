@@ -8,7 +8,7 @@ import { Link as RouterLink, useLocation } from "react-router";
 
 export default function BottomNavs() {
   const location = useLocation();
-  const selection = /^\/add(?:\/|$)/i.test(location.pathname) ? 0 : /^\/chat(?:\/|$)/i.test(location.pathname) ? 1 : 0;
+  const selection = /^\/add(?:\/|$)/i.test(location.pathname) ? 0 : /^\/chat(?:\/|$)/i.test(location.pathname) ? 1 : 2;
 
   return (
     <Box

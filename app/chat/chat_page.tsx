@@ -112,9 +112,11 @@ export async function action({
       };
       const interaction = await geminiClient.interactions.create({
         model: DEFAULT_MODEL,
-        tools: allDatabaseDeclarations.map(value => ({
+        tools: allDatabaseDeclarations.map(({name, parameters, description}) => ({
           type: 'function',
-          ...value
+          name,
+          parameters,
+          description,
         })),
         input: [
           resultStep,
@@ -129,9 +131,11 @@ export async function action({
     const interaction = await geminiClient.interactions.create({
       model,
       input: prompt,
-      tools: allDatabaseDeclarations.map(value => ({
+      tools: allDatabaseDeclarations.map(({name, parameters, description}) => ({
         type: 'function',
-        ...value
+        name,
+        parameters,
+        description,
       })),
       system_instruction: SYSTEM_INSTRUCTION_NORMAL,
     });

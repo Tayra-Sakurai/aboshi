@@ -32,6 +32,7 @@ export default function ChatForm({
                 rows={2}
                 placeholder="分かりやすく指示を入力してください。"
                 required
+                fullWidth
               />
             </Grid>
             <Grid size="auto">
